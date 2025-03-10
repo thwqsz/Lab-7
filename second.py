@@ -2,7 +2,6 @@ import requests
 
 
 def fetch_data(url: str):
-    """Делает запрос к API и возвращает JSON-ответ."""
     try:
         response = requests.get(url)
         response.raise_for_status()  # Вызывает ошибку, если статус не 200
@@ -13,7 +12,6 @@ def fetch_data(url: str):
 
 
 def display_character_info(character_id):
-    """Получает и выводит информацию о персонаже."""
     url = f"https://rickandmortyapi.com/api/character/{character_id}"
     data = fetch_data(url)
 
@@ -38,7 +36,6 @@ def display_character_info(character_id):
 
 
 def display_character_list(character_list):
-    """Выводит список персонажей с ID."""
     print("\nНайденные персонажи:")
     for character in character_list:
         print(f"{character['id']} - {character['name']}")
